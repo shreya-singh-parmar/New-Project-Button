@@ -1,0 +1,22 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  
+}
+.toggle--button
+{
+  background-color: blueviolet;
+  border-radius: 10px;
+  height:'100px';
+  width:200px;
+}
+.toggle-close
+{
+  background-color: brown;
+ 
+}
+.toggle-open
+{
+  background-color: yellow;
+}
