@@ -18,30 +18,29 @@ function Practice3() {
         }
     ]);
     const [On, setOn] = React.useState()
-
-
     const handelOnClick = () => {
-        setOn(Data)
+        setOn(true)
     }
     const handelOffClick = () => {
-        setOn("")
+        setOn(false)
     }
     return (
         <>
             <div>{On}</div>
-            <button onClick={handelOnClick}>ON</button>
-            <button onClick={handelOffClick}>OFF</button>
-
-            '<div>
-                {
-                    Data.map((val) => (
-                        <>
-                            <PracticeCard DisplayObj={val} />
-                        </>
-                    ))
-                }
-            </div>
-
+            <button onClick={handelOnClick}>Show</button>
+            <button onClick={handelOffClick}>Hide</button>
+            {
+                On === true ?
+                    <div>
+                        {
+                            Data.map((val) => (
+                                <>
+                                    <PracticeCard DisplayObj={val} />
+                                </>
+                            ))
+                        }
+                    </div> : ""
+            }
         </>
 
     )
