@@ -16,11 +16,9 @@ const Practice3 = () => {
         }
     ]);
    const[Search,setSearch]=React.useState("")
-   const[Button , setButton] = React.useState(false)
+   const[Button , setButton] = React.useState("")
 const handelButton =()=>{
-    setButton(true);
-}
-   const searchItem = Data.filter((item)=>{
+     const searchItem = Data.filter((item)=>{
    if(Search==="" )
     {
         return item
@@ -29,14 +27,13 @@ const handelButton =()=>{
         return item;
     }
    })
-   
+}
 console.log("Searchitems",searchItem);
     return (
         <>
         <input type="text" placeholder="Search..." value={Search} onChange={(e)=>setSearch(e.target.value)}/>
        <button onClick={handelButton}>Submit</button>
-       {
-        Button===true ?
+       
            <div>
             {
             searchItem.map((val)=>
@@ -46,8 +43,8 @@ console.log("Searchitems",searchItem);
                     </>
             ))
             } 
-           </div> : "" 
-}
+           </div> 
+
         </>
     )
 }
