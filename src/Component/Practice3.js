@@ -1,48 +1,54 @@
-import { DataArrayOutlined } from '@mui/icons-material';
 import React from 'react'
-import PracticeCard from './PracticeCard';
-
-function Practice3() {
+import PracticeCards from './PracticeCards';
+const Practice3 = () => {
     const [Data, setData] = React.useState([
         {
-            name: "Harshit",
-            value: "100"
+            Name:"Harshit",
+            Value:"455"
         },
         {
-            name: "shreya",
-            value: "50"
+            Name:"Shreya",
+            Value:"88"
         },
         {
-            name: "ratan",
-            value: "40"
+            Name:"Ratan",
+            Value:"99"
         }
     ]);
-    const [On, setOn] = React.useState()
-    const handelOnClick = () => {
-        setOn(true)
+   const[Search,setSearch]=React.useState("")
+   const[Button , setButton] = React.useState(false)
+const handelButton =()=>{
+    setButton(true);
+}
+   const searchItem = Data.filter((item)=>{
+   if(Search==="" )
+    {
+        return item
     }
-    const handelOffClick = () => {
-        setOn(false)
+    else if(item.Name.toLowerCase().includes(Search.toLowerCase())){
+        return item;
     }
+   })
+   
+console.log("Searchitems",searchItem);
     return (
         <>
-            <div>{On}</div>
-            <button onClick={handelOnClick}>Show</button>
-            <button onClick={handelOffClick}>Hide</button>
+        <input type="text" placeholder="Search..." value={Search} onChange={(e)=>setSearch(e.target.value)}/>
+       <button onClick={handelButton}>Submit</button>
+       {
+        Button===true ?
+           <div>
             {
-                On === true ?
-                    <div>
-                        {
-                            Data.map((val) => (
-                                <>
-                                    <PracticeCard DisplayObj={val} />
-                                </>
-                            ))
-                        }
-                    </div> : ""
-            }
+            searchItem.map((val)=>
+            (
+                    <>
+                    <h2><PracticeCards DisplayObj ={val}/></h2>
+                    </>
+            ))
+            } 
+           </div> : "" 
+}
         </>
-
     )
 }
 
