@@ -4,10 +4,10 @@ const Practice8 = () => {
   const [Input, setInput] = React.useState()
   const [Result, setResult] = React.useState([])
   const handelChangeSubmit = () => {
-    setResult(...Result, Input)
-  }
+    setResult([...Result,Input]);
+     
   setInput(" ");
-}
+  }
 const deleteItem = (id) => {
   const updateditem = Result.filter((elem, ind) => {
     return id!== ind
@@ -37,5 +37,5 @@ return (
     </ol>
   </>
 )
-    
+    }    
 export default Practice8
